@@ -1,0 +1,27 @@
+Acerca de este archivo
+El conjunto de datos de diabetes de los indios pima implica predecir la aparición de diabetes dentro de los 5 años en los indios pima dados los detalles médicos.
+
+Es un problema de clasificación binaria (2 clases). El número de observaciones para cada clase no está balanceado. Hay 768 observaciones con 8 variables de entrada y 1 variable de salida. Se cree que los valores perdidos están codificados con valores cero. Los nombres de las variables son los siguientes:
+
+Número de veces embarazada.
+Concentración de glucosa plasmática a las 2 horas en una prueba de tolerancia oral a la glucosa.
+Presión arterial diastólica (mm Hg).
+Grosor del pliegue cutáneo del tríceps (mm).
+Insulina sérica de 2 horas (mu U/ml).
+Índice de masa corporal (peso en kg/(altura en m)^2).
+Función del pedigrí de la diabetes.
+Años de edad).
+Variable de clase (0 o 1).
+
+
+
+columnas
+EmbarazosNúmero de veces embarazadas
+GlucosaConcentración de glucosa en plasma a las 2 horas en una prueba de tolerancia oral a la glucosa
+BloodPressurePresión arterial diastólica (mm Hg)
+SkinThicknessGrosor del pliegue cutáneo del tríceps (mm)
+Insulina Insulina sérica de 2 horas (mu U/ml)
+BMIÍndice de masa corporal (peso en kg/(altura en m)^2)
+DiabetesPedigreeFunctionFunción de pedigrí de diabetes
+EdadEdad (años)
+Variable OutcomeClass (0 o 1) 268 de 768 son 1, los demás son 0

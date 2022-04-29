@@ -1,0 +1,32 @@
+Acerca de este archivo
+Este conjunto de datos contiene aproximadamente 10 años de observaciones meteorológicas diarias de numerosas estaciones meteorológicas australianas.
+
+El objetivo RainTomorrow significa: ¿Llovió al día siguiente? Sí o no.
+
+
+
+columnas
+FechaLa fecha de observación
+UbicaciónEl nombre común de la ubicación de la estación meteorológica
+MinTempLa temperatura mínima en grados centígrados
+MaxTempLa temperatura máxima en grados centígrados
+LluviaLa cantidad de lluvia registrada para el día en mm
+EvaporaciónLa llamada evaporación de bandeja Clase A (mm) en las 24 horas a las 9 a.m.
+SolLa cantidad de horas de sol brillante en el día.
+WindGustDirLa dirección de la ráfaga de viento más fuerte en las 24 horas hasta la medianoche
+WindGustSpeedLa velocidad (km/h) de la ráfaga de viento más fuerte en las 24 horas hasta la medianoche
+WindDir9amDirección del viento a las 9am
+WindDir3pmDirección del viento a las 3pm
+WindSpeed9amVelocidad del viento (km/h) promediada durante 10 minutos antes de las 9am
+WindSpeed3pmVelocidad del viento (km/h) promediada durante 10 minutos antes de las 3pm
+Humedad9amHumedad (porcentaje) a las 9am
+Humedad3pmHumedad (porcentaje) a las 3pm
+Presión9amPresión atmosférica (hpa) reducida al nivel medio del mar a las 9am
+Presión3pmPresión atmosférica (hpa) reducida al nivel medio del mar a las 3pm
+Cloud9amFracción de cielo oscurecida por nubes a las 9am. Esto se mide en "octas", que son una unidad de octavos. Registra cuántos octavos del cielo están oscurecidos por las nubes. Una medida de 0 indica cielo completamente despejado mientras que un 8 indica que está completamente nublado.
+Cloud3pmFracción de cielo oscurecido por la nube (en "octas": octavos) a las 3pm. Ver Cload9am para una descripción de los valores
+Temp9amTemperatura (grados C) a las 9am
+Temp3pmTemperature (grados C) a las 3pm
+RainTodayBoolean: 1 si la precipitación (mm) en las 24 horas hasta las 9 a. m. excede 1 mm; de lo contrario, 0
+RISK_MMLa cantidad de lluvia al día siguiente en mm. Se utiliza para crear la variable de respuesta RainTomorrow. Una especie de medida del "riesgo".
+RainTomorrowLa variable objetivo. ¿Llovió mañana?

@@ -1,0 +1,28 @@
+Acerca de este archivo
+
+Los datos están relacionados con campañas de marketing directo de una entidad bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas. A menudo, se requería más de un contacto con el mismo cliente, para poder acceder a si el producto (depósito bancario a plazo) estaría (o no) suscrito.
+
+Hay dos conjuntos de datos: 1) bank-full.csv con todos los ejemplos, ordenados por fecha (de mayo de 2008 a noviembre de 2010). 2) bank.csv con el 10% de los ejemplos (4521), seleccionados aleatoriamente de bank-full.csv. El conjunto de datos más pequeño se proporciona para probar algoritmos de aprendizaje automático más exigentes desde el punto de vista computacional (por ejemplo, SVM).
+
+El objetivo de la clasificación es predecir si el cliente suscribirá un depósito a plazo (variable y).
+
+Número de instancias: 45211 para bank-full.csv (4521 para bank.csv)
+
+Número de atributos: 16 + atributo de salida.
+
+Información de atributos:
+
+Para obtener más información, lea [Moro et al., 2011].
+
+Variables de entrada:
+
+datos del cliente bancario:
+1 - edad (numérico) 2 - trabajo : tipo de trabajo (categórico: "administrador", "desconocido", "desempleado", "gerencia", "criada", "empresario", "estudiante", "cuello azul" , "cuenta propia", "jubilado", "técnico", "servicios") 3 - civil: estado civil (categórico: "casado", "divorciado", "soltero"; nota: "divorciado" significa divorciado o viudo) 4 - educación (categórica: "desconocida","secundaria","primaria","terciaria") 5 - morosidad: ¿tiene crédito en mora? (binario: "sí","no") 6 - saldo: saldo medio anual, en euros (numérico) 7 - vivienda: ¿tiene préstamo vivienda? (binario: "sí","no") 8 - préstamo: ¿tiene préstamo personal? (binario: "sí","no")
+
+relacionados con el último contacto de la campaña actual:
+9 - contacto: tipo de comunicación del contacto (categórico: "desconocido","teléfono","celular") 10 - día: último día de contacto del mes (numérico) 11 - mes: último mes de contacto del año (categórico: "ene" , "feb", "mar", ..., "nov", "dec") 12 - duración: duración del último contacto, en segundos (numérico)
+
+otros atributos:
+13 - campaña: número de contactos realizados durante esta campaña y para este cliente (numérico, incluye último contacto) 14 - pdays: número de días que pasaron después de que el cliente fue contactado por última vez de una campaña anterior (numérico, -1 significa que el cliente fue no contactado previamente) 15 - anterior: número de contactos realizados antes de esta campaña y para este cliente (numérico) 16 - resultado: resultado de la campaña de marketing anterior (categórico: "desconocido","otro","fracaso","éxito" )
+
+Variable de salida (objetivo deseado): 17 - y - ¿El cliente ha suscrito un depósito a plazo? (binario: "sí","no")
