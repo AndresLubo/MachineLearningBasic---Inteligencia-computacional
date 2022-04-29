@@ -4,6 +4,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import SGDClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
@@ -142,3 +144,45 @@ print(f'accuracy de Test de Entrenamiento: {arbol.score(x_test, y_test)}')
 
 # Accuracy de Validación
 print(f'accuracy de Validación: {arbol.score(x_test_out, y_test_out)}')
+
+# classifiers SGD
+
+#seleccionar el modelo
+clf = SGDClassifier(loss="hinge", penalty="l2", max_iter=7600)
+
+#entrenar el modelo
+clf.fit(x_train, y_train)
+
+#Métricas
+print('*'*50)
+print('classifier, SGD')
+
+# Accuracy de Entrenamiento de Entrenamiento
+print(f'accuracy de Entrenamiento de Entrenamiento: {clf.score(x_train, y_train)}')
+
+# Accuracy de Test de Entrenamiento
+print(f'accuracy de Test de Entrenamiento: {clf.score(x_test, y_test)}')
+
+# Accuracy de Validación
+print(f'accuracy de Validación: {clf.score(x_test_out, y_test_out)}')
+
+# MLPClassifier
+
+#seleccionar el modelo
+mpl = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
+
+#entrenar el modelo
+mpl.fit(x_train, y_train)
+
+#Métricas
+print('*'*50)
+print('MLPClassifier')
+
+# Accuracy de Entrenamiento de Entrenamiento
+print(f'accuracy de Entrenamiento de Entrenamiento: {mpl.score(x_train, y_train)}')
+
+# Accuracy de Test de Entrenamiento
+print(f'accuracy de Test de Entrenamiento: {mpl.score(x_test, y_test)}')
+
+# Accuracy de Validación
+print(f'accuracy de Validación: {mpl.score(x_test_out, y_test_out)}')
