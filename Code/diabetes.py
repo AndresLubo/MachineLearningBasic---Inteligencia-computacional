@@ -9,74 +9,63 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
-url = '../bank-full.csv'
+url = '../diabetes.csv'
 data = pd.read_csv(url)
 
 # Tratamiento de la data
-"""
-Column marital
-values: 
 
-married = 0
-divorced = 1
-single = 2
-"""
-data.marital.replace(['married', 'divorced', 'single'], [0, 1, 2], inplace=True)
+data.Pregnancies.replace(np.nan, 4, inplace=True)
+rangos_pregnancies = [0, 5, 10, 15, 20]
+nombres_pregnancies = [1, 2,3, 4]
+data.Pregnancies = pd.cut(data.Pregnancies, rangos_pregnancies, labels=nombres_pregnancies)
 
-"""
-Column education
-values:
+data.Glucose.replace(np.nan, 121, inplace=True)
+rangos_glucose = [0, 50, 100, 150, 200]
+nombres_glucose = [1, 2,3, 4]
+data.Glucose = pd.cut(data.Glucose, rangos_glucose, labels=nombres_glucose)
 
-primary = 0
-secundary = 1
-tertiary = 2
-unknown = 3
-"""
+data.BloodPressure.replace(np.nan, 69, inplace=True)
+rangos_bloodPressure = [0, 50, 100, 150]
+nombres_bloodPressure = [1, 2, 3]
+data.BloodPressure = pd.cut(data.BloodPressure, rangos_bloodPressure, labels=nombres_bloodPressure)
 
-data.education.replace(['primary', 'secondary', 'tertiary', 'unknown'], [0, 1, 2, 3], inplace=True)
+data.SkinThickness.replace(np.nan, 21, inplace=True)
+rangos_skinThickness = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+nombres_skinThickness = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,]
+data.SkinThickness = pd.cut(data.SkinThickness, rangos_skinThickness, labels=nombres_skinThickness)
 
-"""
-Column Default
-value: 
+data.Insulin.replace(np.nan, 78, inplace=True)
+rangos_insulin = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+nombres_insulin = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,]
+data.Insulin = pd.cut(data.Insulin, rangos_insulin, labels=nombres_insulin)
 
-no = 0
-yes = 1
-"""
-data.default.replace(['no', 'yes'], [0, 1], inplace=True)
+data.BMI.replace(np.nan, 32, inplace=True)
+rangos_bmi = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+nombres_bmi = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,]
+data.BMI = pd.cut(data.BMI, rangos_bmi, labels=nombres_bmi)
 
-"""
-Column housing
-value: 
+data.drop(['DiabetesPedigreeFunction'], axis=1, inplace=True)
 
-no = 0
-yes = 1
-"""
-
-data.housing.replace(['no', 'yes'], [0, 1], inplace=True)
-data.loan.replace(['no', 'yes'], [0, 1], inplace=True)
-data.poutcome.replace(['failure', 'other', 'success', 'unknown'], [0, 1, 2, 3], inplace=True)
-
-data.drop(['job', 'balance', 'contact', 'day', 'month', 'duration', 'pdays', 'previous', 'campaign'], axis= 1, inplace=True)
-
-data.age.replace(np.nan, 41, inplace=True)
+data.Age.replace(np.nan, 33, inplace=True)
 rangos = [0, 8, 15, 18, 25, 40, 60, 100]
 nombres = ['1', '2', '3', '4', '5', '6', '7']
-data.age = pd.cut(data.age, rangos, labels=nombres)
+data.Age = pd.cut(data.Age, rangos, labels=nombres)
+
 
 data.dropna(axis=0,how='any', inplace=True)
-data.y.replace(['no', 'yes'], [0, 1], inplace=True)
+
 
 
 # partir la data en dos
-data_train = data[:728]
-data_test = data[728:]
+data_train = data[:253]
+data_test = data[253:]
 
-x = np.array(data_train.drop(['y'], 1))
-y = np.array(data_train.y) # 0 NO 1 Si
+x = np.array(data_train.drop(['Outcome'], 1))
+y = np.array(data_train.Outcome) # 0 NO 1 Si
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-x_test_out = np.array(data_test.drop(['y'], 1))
-y_test_out = np.array(data_test.y) # 0 No 1 Si
+x_test_out = np.array(data_test.drop(['Outcome'], 1))
+y_test_out = np.array(data_test.Outcome) # 0 No 1 Si
 
 # Regresión Logística
 
@@ -186,5 +175,3 @@ print(f'accuracy de Test de Entrenamiento: {mpl.score(x_test, y_test)}')
 
 # Accuracy de Validación
 print(f'accuracy de Validación: {mpl.score(x_test_out, y_test_out)}')
-
-
